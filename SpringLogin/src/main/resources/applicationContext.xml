@@ -12,15 +12,16 @@
                         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
                         http://www.springframework.org/schema/context 
                         http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="com.ljd.service"></context:component-scan>
-    <context:property-placeholder location="classpath:config.properties"
+
+    <context:component-scan base-package="com.study.sys.Service"></context:component-scan>
+    <context:property-placeholder location="classpath:db.properties"
         ignore-unresolvable="true" />
     <!-- 配置数据源 -->
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
         init-method="init" destroy-method="close">
-        <property name="url" value="${jdbc_url}" />
-        <property name="username" value="${jdbc_username}" />
-        <property name="password" value="${jdbc_password}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
         <!-- 初始化连接大小 -->
         <property name="initialSize" value="0" />
         <!-- 连接池最大使用连接数量 -->
@@ -51,12 +52,12 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 配置数据库表对应的java实体类 -->
-        <property name="typeAliasesPackage" value="com.ljd.pojo" />
+        <property name="typeAliasesPackage" value="com.study.sys.Entity" />
         <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="mapperLocations" value="classpath:com/ljd/mapper/*.xml" />
+        <property name="mapperLocations" value="classpath:mapper/*.xml" />
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ljd.mapper" />
+        <property name="basePackage" value="com.study.sys.Mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 </beans>
