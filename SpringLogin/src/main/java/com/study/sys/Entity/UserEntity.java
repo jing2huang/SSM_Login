@@ -2,12 +2,12 @@ package com.study.sys.Entity;
 
 public class UserEntity {
 
-    private int id;
+    private String id;
     private String name;
     private int age;
     private String username;
     private String password;
-    private String sex;
+    private int sex;
 
     public String getUsername() {
         return username;
@@ -25,11 +25,11 @@ public class UserEntity {
         this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,11 +49,11 @@ public class UserEntity {
         this.age = age;
     }
 
-    public String getSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 }
