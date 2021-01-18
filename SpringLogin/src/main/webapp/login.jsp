@@ -7,6 +7,7 @@
 <body>
 <form id="loginform">
     <h1>首页</h1>
+    <a href="/user/userAdd.do">添加用户</a>
 </form>
 </body>
 </html>

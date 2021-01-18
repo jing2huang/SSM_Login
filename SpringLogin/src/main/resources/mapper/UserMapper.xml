@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.sys.Mapper.UserMapper">
+    <select id="user" resultType="UserEntity">
+        select * from users where id=#{id}
+    </select>
+
+    <update id="userList" parameterType="UserEntity">
+        select * from users
+    </update>
+
+    <insert id="addUser" parameterType="UserEntity">
+        insert into users(name, age, sex, username, password) values(#{name}, #{age}, #{sex}, #{username}, #{password})
+    </insert>
+</mapper>
