@@ -7,9 +7,9 @@
         select * from users where id=#{id}
     </select>
 
-    <update id="userList" parameterType="UserEntity">
-        select * from users
-    </update>
+    <select id="userList" resultType="map">
+        select id,name,age from users
+    </select>
 
     <insert id="addUser" parameterType="UserEntity">
         insert into users(name, age, sex, username, password) values(#{name}, #{age}, #{sex}, #{username}, #{password})

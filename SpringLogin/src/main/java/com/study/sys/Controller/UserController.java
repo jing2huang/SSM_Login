@@ -1,5 +1,7 @@
 package com.study.sys.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +26,11 @@ public class UserController extends ModelAndView {
     public String addUser(UserEntity user) {
         userService.addUser(user);
         return "user/userAdd";
+    }
+
+    @RequestMapping
+    public String userList(HttpServletRequest req) {
+        req.setAttribute("list", userService.userList());
+        return "user/userList";
     }
 }
